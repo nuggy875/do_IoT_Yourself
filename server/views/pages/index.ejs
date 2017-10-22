@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <% include ../partials/stylesheet %>
+</head>
+
+<body>
+  <% include ../partials/header %>
+    <div class="jumbotron content">
+      <div class="container">
+        <h1>Do IOT Yourself</h1>
+        <p>저희서비스는 일반인들이 쉽게, 이벤트와 그에따른 액션을 연결함으로써 유저 맞춤형 IOT 서비스를 제공하는 플랫폼을 제공하고 있습니다.</p>
+        <br><br>
+        <p><a class="btn btn-primary btn-lg" href="/connect" role="button" data-toggle="modal" data-target="#createPost">Getting Started</a></p>
+      </div>
+    </div>
+
+    <!--modal-->
+
+    <div class="modal fade" id="createPost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form action="/home" method="post">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Create Connection</h4>
+            </div>
+
+            <div class="modal-body">
+              <!--
+              <fieldset class="form-group">
+                <label for="inputitle">Title</label>
+                <input type="text" id="inputitle" name="title" class="form-control" placeholder="Comment Title" required="">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="inputContent">Content</label>
+                <textarea id="inputContent" name="content" rows="8" cols="40" class="form-control" placeholder="Comment Description" required=""></textarea>
+              </fieldset>
+              -->
+
+              <div id="inputaction" class="selectGroup form-control">
+                <label for="a-select">Action: </label>
+                <select name="iotaction" id="a-select">
+                  <optgroup label ="Action">
+                    <option>Action을 선택하세요.</option>
+                    <option>침대눕기</option>
+                    <option>장시간 자리비움</option>
+                    <option>문 열림</option>
+                    <option>문 닫힘</option>
+                  </optgroup>
+
+                </select>
+
+              </div>
+
+              <div id="inputevent" class="selectGroup form-control">
+                <label for="e-select">Event: </label>
+                <select name="iotevent" id="e-selsect">
+                  <optgroup label ="Event">
+                    <option>Event를 선택하세요.</option>
+                    <option>모터 ON</option>
+                    <option>모터 OFF</option>
+                    <option>전등 ON</option>
+                    <option>전등 OFF</option>
+                    <option>E-mail 전송</option>
+                    <option>팝업 띄우기</option>
+
+
+                  </optgroup>
+
+                </select>
+              </div>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+
+
+    <div class="container">
+      <div class="lead">
+          <div class="list-group">
+          <% connects.forEach(function(connects){ %>
+                  <a href="#" class="list-group-item">
+                      <div class="connects">
+                          <p class="list-group-item-text iotitem"><%= connects.iotaction %> => <%= connects.iotevent %></p>
+
+                          <!--
+                          <small class="text-muted">By: <%= connects.user.local.email %></small>
+                          -->
+                      </div>
+                  </a>
+          <% }); %>
+          </div>
+      </div>
+    </div>
+
+
+    <hr>
+
+
+    <% include ../partials/footer %>
+    <% include ../partials/javascript %>
+</body>
+
+</html>
