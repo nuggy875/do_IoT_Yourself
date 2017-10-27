@@ -104,7 +104,7 @@ function isLoggedIn(req, res, next) {
 /* GET Logout Page */
 router.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/home');
 });
 
 
