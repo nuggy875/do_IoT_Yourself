@@ -27,7 +27,9 @@ app.set('view engine', 'ejs');
 // Database configuration
 var config = require('./server/config/config.js');
 // connect to our database
-mongoose.connect(config.url);
+mongoose.connect(config.url ,{
+	useMongoClient:true
+});
 // Check if MongoDB is running
 mongoose.connection.on('error', function() {
 	console.error('MongoDB 연결오류, MongoDB를 연결해주세요.');
