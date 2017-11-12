@@ -17,7 +17,9 @@ var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
 var flash = require('connect-flash');
 var net = require('net');
+var data_check = require('./data_check');
 var app = express();
+var Connects = require('./server/models/connects');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'server/views/pages'));
@@ -27,6 +29,7 @@ app.set('view engine', 'ejs');
 // Database configuration
 var config = require('./server/config/config.js');
 // connect to our database
+mongoose.Promise = global.Promise;
 mongoose.connect(config.url ,{
 	useMongoClient:true
 });
@@ -122,44 +125,52 @@ var server = app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + server.address().port);
 });
 
+
 //보내는 데이터
-var msg = 'test';
-var tcp_server = net.createServer( function ( client_socket ) { 
+var msg = '';
+var tcp_server = net.createServer( function ( client_socket ) {
 
 			console.log('client connected >> '  + client_socket.remoteAddress +':'+ client_socket.remotePort);
 			client_socket.setNoDelay(true);
 		//	client_socket.setTimeout( 4000 );
-			
+
 			client_socket.on('drain', function () {
-				console.log('client occured drain >> write buffer is empty' );	
+				console.log('client occured drain >> write buffer is empty' );
 			});
 
 			client_socket.on('data', function (data) {
-				console.log('client received data >> '  + client_socket._peername.address +':'+ client_socket._peername.port + ' [' + data + ']' );	
-				client_socket.write(msg);
+				//데이터 디비에서 체크해서 맞는 값 리턴
+				var input = '[' + data + ']';
+				data_check(input,function(result){
+				 client_socket.write(result);
+				});
+
+
+				//console.log('client received data >> '  + client_socket._peername.address +':'+ client_socket._peername.port + data );
+				//client_socket.write(msg);
 			});
 
 			client_socket.on('end', function () {
-				console.log('client received end >> '  + client_socket._peername.address +':'+ client_socket._peername.port );	
+				console.log('client received end >> '  + client_socket._peername.address +':'+ client_socket._peername.port );
 			});
-			
+
 			client_socket.on('error', function (error) {
 				console.error('client occured error >> ', error);
 			});
-			
+
 			client_socket.on('timeout', function () {
-				console.log('client occured timeout >> ' );	
+				console.log('client occured timeout >> ' );
 			});
 
 			client_socket.on('close', function (error) {
-				console.log('client closed >>' );	
+				console.log('client closed >>' );
 				if (error) {
 					console.log('The socket had a transmission error.');
-				}		
+				}
 			});
-			
+
 		});
-		 
+
 		tcp_server.listen(88, function() {
 			address = server.address();
 			console.log("server listening on %j", 88, address);
