@@ -6,7 +6,7 @@ var connectSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  
+
   iotaction: {
     type: String,
     default: '',
@@ -15,6 +15,18 @@ var connectSchema = mongoose.Schema({
     required: ''
   },
   iotevent: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  input_number: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  output_number: {
     type: String,
     default: '',
     trim: true,

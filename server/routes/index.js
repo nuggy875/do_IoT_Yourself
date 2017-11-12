@@ -34,7 +34,7 @@ router.get('/home', hasAuthorization, function(req, res) {
 hardware에서 데이터를 받아 그에맞는 event처리
 */
 
-
+/*
 router.post('/', function(req, res) {
     	console.log(req);
   	var buf = '';
@@ -45,12 +45,69 @@ router.post('/', function(req, res) {
 	res.send(req.rawBody);
 	});
 });
+*/
+function input_check(input){
+  if (input === '침대누움'){
+    return '[1011]';
+  }
+  else if (input === '침대일어남') {
+    return '[1010]';
+  }
+  else if (input === '소파앉음') {
+    return '[1021]';
+  }
+  else if (input === '소파일어남') {
+    return '[1020]';
+  }
+  else if (input === '창문열음') {
+    return '[1031]';
+  }
+  else if (input === '창문닫음') {
+    return '[1030]';
+  }
+  else if (input === '적외선감지') {
+    return '[1041]';
+  }
+  else if (input === '적외선미감지') {
+    return '[1040]';
+  }
+}
+
+function output_check(output){
+  if (output === '거실등 ON'){
+    return '2011';
+  }
+  else if (output === '거실등 OFF') {
+    return '2010';
+  }
+  else if (output === '스탠드램프 ON') {
+    return '2021';
+  }
+  else if (output === '스탠드램프 OFF') {
+    return '2020';
+  }
+  else if (output === '경보기 ON') {
+    return '2031';
+  }
+  else if (output === '경보기 OFF') {
+    return '2030';
+  }
+  else if (output === '환풍기 ON') {
+    return '2041';
+  }
+  else if (output === '환풍기 OFF') {
+    return '2040';
+  }
+  else if (output === 'E-mail 전송') {
+    return '0';
+  }
+}
 
 router.post('/data_status', function(req, res) {
    //post방식으로 받아온 json타입에서 바디의 iotaction key의 data값을 string으로 받아옴
    // iotaction: xx
    var iot_action=req.body.iotaction
-   console.log(iot_action);
+   console.log(typeof(iot_action));
   //json 배열 형태로 뽑아내 전달
 
   Users.find().select('local').exec(function(error, connects){
@@ -62,6 +119,7 @@ router.post('/data_status', function(req, res) {
   Connects.find({iotaction: iot_action},{_id: 0, iotevent: 1}) // id컬럼값을제거하고 iotevent만 남김
   .select('iotevent').sort('-created')
   .exec(function(error, connects) {
+    console.log(connects);
     var iot_events = (connects);
     var emailCheck = iot_events.find((item, idx) => {
       return item.iotevent === 'E-mail 전송'
@@ -108,6 +166,10 @@ router.post('/home', function(req, res) {
   console.log(req.body);
     // create a new instance of the Connects model with request body
     var connects = new Connects(req.body);
+    console.log(connects.iotaction);
+    connects.input_number = input_check(connects.iotaction);
+    console.log(connects.input_number)
+    connects.output_number = output_check(connects.iotevent);
     // Set current user (id)
     connects.user = req.user;
     // save the data received

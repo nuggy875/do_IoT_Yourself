@@ -49,13 +49,14 @@
                 <select name="iotaction" id="a-select">
                   <optgroup label ="Action">
                     <option>INPUT을 선택하세요.</option>
-                    <option>침대눕기</option>
+                    <option>침대누움</option>
                     <option>침대일어남</option>
-                    <option>장시간 자리비움</option>
-                    <option>의자앉기</option>
-                    <option>의자일어남</option>
-                    <option>창문열기</option>
-                    <option>창문닫기</option>
+                    <option>소파앉음</option>
+                    <option>소파일어남</option>
+                    <option>창문열음</option>
+                    <option>창문닫음</option>
+                    <option>적외선감지</option>
+                    <option>적외선미감지</option>
                   </optgroup>
 
                 </select>
@@ -67,20 +68,21 @@
                 <select name="iotevent" id="e-selsect">
                   <optgroup label ="Event">
                     <option>Event를 선택하세요.</option>
-                    <option>모터 ON</option>
-                    <option>모터 OFF</option>
-                    <option>천장등 ON</option>
-                    <option>천장등 OFF</option>
+                    <option>거실등 ON</option>
+                    <option>거실등 OFF</option>
+                    <option>스탠드램프 ON</option>
+                    <option>스탠드램프 OFF</option>
                     <option>E-mail 전송</option>
-                    <option>스탠드 ON</option>
-                    <option>스탠드 OFF</option>
-                    <option>모든것 OFF</option>
-                    <option>알람 ON</option>
+                    <option>경보기 ON</option>
+                    <option>경보기 OFF</option>
+                    <option>환풍기 ON</option>
+                    <option>환풍기 OFF</option>
 
                   </optgroup>
 
                 </select>
               </div>
+
 
 
             </div>
@@ -103,7 +105,7 @@
           <% connects.forEach(function(connects){ %>
                   <a href="#" class="list-group-item">
                       <div class="connects">
-                          <p class="list-group-item-text iotitem"><%= connects.iotaction %> => <%= connects.iotevent %></p>
+                          <p class="list-group-item-text iotitem"><%= connects.iotaction %> => <%= connects.iotevent %> <%=connects.input_number %><%=connects.output_number %></p>
                       </div>
                   </a>
           <% }); %>
