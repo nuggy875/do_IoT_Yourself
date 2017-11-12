@@ -35,12 +35,22 @@ hardware에서 데이터를 받아 그에맞는 event처리
 */
 
 
+router.post('/', function(req, res) {
+    	console.log(req);
+  	var buf = '';
+        req.setEncoding('utf8');
+	req.on('data', function(chunk){ buf += chunk });
+	req.on('end', function() {
+ 	req.rawBody = buf;
+	res.send(req.rawBody);
+	});
+});
+
 router.post('/data_status', function(req, res) {
    //post방식으로 받아온 json타입에서 바디의 iotaction key의 data값을 string으로 받아옴
    // iotaction: xx
    var iot_action=req.body.iotaction
    console.log(iot_action);
-
   //json 배열 형태로 뽑아내 전달
 
   Users.find().select('local').exec(function(error, connects){

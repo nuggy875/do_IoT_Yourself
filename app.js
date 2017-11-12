@@ -16,7 +16,7 @@ var MongoStore = require('connect-mongo')(session);
 // Import Passport and Warning flash modules
 var passport = require('passport');
 var flash = require('connect-flash');
-
+var net = require('net');
 var app = express();
 
 // view engine setup
@@ -37,10 +37,15 @@ mongoose.connection.on('error', function() {
 
 // Passport 설정
 require('./server/config/passport')(passport);
-
+var options = {
+  inflate: true,
+  limit: '100kb',
+  type: 'application/octet-stream'
+};
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(bodyParser.raw(options));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -116,3 +121,46 @@ app.set('port', process.env.PORT || 80);
 var server = app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + server.address().port);
 });
+
+//보내는 데이터
+var msg = 'test';
+var tcp_server = net.createServer( function ( client_socket ) { 
+
+			console.log('client connected >> '  + client_socket.remoteAddress +':'+ client_socket.remotePort);
+			client_socket.setNoDelay(true);
+		//	client_socket.setTimeout( 4000 );
+			
+			client_socket.on('drain', function () {
+				console.log('client occured drain >> write buffer is empty' );	
+			});
+
+			client_socket.on('data', function (data) {
+				console.log('client received data >> '  + client_socket._peername.address +':'+ client_socket._peername.port + ' [' + data + ']' );	
+				client_socket.write(msg);
+			});
+
+			client_socket.on('end', function () {
+				console.log('client received end >> '  + client_socket._peername.address +':'+ client_socket._peername.port );	
+			});
+			
+			client_socket.on('error', function (error) {
+				console.error('client occured error >> ', error);
+			});
+			
+			client_socket.on('timeout', function () {
+				console.log('client occured timeout >> ' );	
+			});
+
+			client_socket.on('close', function (error) {
+				console.log('client closed >>' );	
+				if (error) {
+					console.log('The socket had a transmission error.');
+				}		
+			});
+			
+		});
+		 
+		tcp_server.listen(88, function() {
+			address = server.address();
+			console.log("server listening on %j", 88, address);
+		});
