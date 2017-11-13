@@ -16,7 +16,12 @@ var nodemailer = require('nodemailer');
       let emailCheck = outputs.find((item, idx) => {
         return item.iotevent === 'E-mail 전송'
       });
+      if(outputs[0] != undefined){
       result = outputs[0].output_number;
+        }
+      else{
+        result=' ';
+      }
 
       if(emailCheck != undefined){
         var transporter = nodemailer.createTransport({
