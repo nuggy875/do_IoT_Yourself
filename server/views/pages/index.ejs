@@ -45,42 +45,130 @@
               -->
 
               <div id="inputaction" class="selectGroup form-control">
-                <label for="a-select">Action: </label>
+                <label for="a-select">INPUT1: </label>
                 <select name="iotaction" id="a-select">
                   <optgroup label ="Action">
                     <option>INPUT을 선택하세요.</option>
-                    <option>침대누움</option>
-                    <option>침대일어남</option>
-                    <option>소파앉음</option>
-                    <option>소파일어남</option>
-                    <option>창문열음</option>
-                    <option>창문닫음</option>
-                    <option>적외선감지</option>
-                    <option>적외선미감지</option>
+                    <option >센서1 ON</option>
+                    <option >센서1 OFF</option>
                   </optgroup>
 
                 </select>
+
 
               </div>
 
-              <div id="inputevent" class="selectGroup form-control">
-                <label for="e-select">Event: </label>
-                <select name="iotevent" id="e-selsect">
-                  <optgroup label ="Event">
-                    <option>Event를 선택하세요.</option>
-                    <option>거실등 ON</option>
-                    <option>거실등 OFF</option>
-                    <option>스탠드램프 ON</option>
-                    <option>스탠드램프 OFF</option>
-                    <option>E-mail 전송</option>
-                    <option>경보기 ON</option>
-                    <option>경보기 OFF</option>
-                    <option>환풍기 ON</option>
-                    <option>환풍기 OFF</option>
-
+              <div id="inputaction" class="selectGroup form-control">
+                <label for="a-select">INPUT2: </label>
+                <select name="iotaction2" id="a-select">
+                  <optgroup label ="Action">
+                    <option>INPUT을 선택하세요.</option>
+                    <option >센서2 ON</option>
+                    <option >센서2 OFF</option>
                   </optgroup>
 
                 </select>
+
+
+              </div>
+
+              <div id="inputaction" class="selectGroup form-control">
+                <label for="a-select">INPUT3: </label>
+                <select name="iotaction3" id="a-select">
+                  <optgroup label ="Action">
+                    <option>INPUT을 선택하세요.</option>
+                    <option >센서3 ON</option>
+                    <option >센서3 OFF</option>
+                  </optgroup>
+
+                </select>
+
+
+              </div>
+
+              <div id="inputaction" class="selectGroup form-control">
+                <label for="a-select">INPUT4: </label>
+                <select name="iotaction4" id="a-select">
+                  <optgroup label ="Action">
+                    <option>INPUT을 선택하세요.</option>
+                    <option >센서4 ON</option>
+                    <option >센서4 OFF</option>
+                  </optgroup>
+
+                </select>
+              </div>
+              <br>
+              <br>
+
+              <div id="inputevent" class="selectGroup form-control">
+                <label for="e-select">OUTPUT1: </label>
+                <select name="iotevent" id="e-selsect">
+                  <optgroup label ="Event">
+                    <option>Event를 선택하세요.</option>
+                    <option >거실등 ON</option>
+                    <option >거실등 OFF</option>
+                  </optgroup>
+
+                </select>
+              </div>
+
+              <div id="inputevent" class="selectGroup form-control">
+                <label for="e-select">OUTPUT2: </label>
+                <select name="iotevent2" id="e-selsect">
+                  <optgroup label ="Event">
+                    <option>Event를 선택하세요.</option>
+                    <option >스탠드램프 ON</option>
+                    <option >스탠드램프 OFF</option>
+                  </optgroup>
+
+                </select>
+              </div>
+
+              <div id="inputevent" class="selectGroup form-control">
+                <label for="e-select">OUTPUT3: </label>
+                <select name="iotevent3" id="e-selsect">
+                  <optgroup label ="Event">
+                    <option>Event를 선택하세요.</option>
+                    <option >경보기 ON</option>
+                    <option >경보기 OFF</option>
+                  </optgroup>
+
+                </select>
+              </div>
+
+              <div id="inputevent" class="selectGroup form-control">
+                <label for="e-select">OUTPUT4: </label>
+                <select name="iotevent4" id="e-selsect">
+                  <optgroup label ="Event">
+                    <option>Event를 선택하세요.</option>
+                    <option >환풍기 ON</option>
+                    <option >환풍기 OFF</option>
+                  </optgroup>
+
+                </select>
+              </div>
+
+              <br>
+              <br>
+              
+              <div id="emailevent" class="selectGroup form-control">
+                <label for="m-select">Email(option): </label>
+                <select name="email" id="e-selsect">
+                  <optgroup label ="Email">
+                    <option value=0>이메일전송여부</option>
+                    <option value=0>OFF</option>
+                    <option value=1>ON</option>
+                  </optgroup>
+
+                </select>
+              </div>
+              <div id="emailevent" class="selectGroup form-control">
+                <label for="m-select">수신메일주소</label>
+                <input type="text" class="form-control" id="emailaddr" name="emailaddr" value="입력하세요">
+              </div>
+              <div id="emailevent" class="selectGroup form-control">
+                <label for="m-select">보낼메시지 </label>
+                <input type="text" class="form-control" id="emailtext" name="emailtext" value="입력하세요">
               </div>
 
 
@@ -105,7 +193,26 @@
           <% connects.forEach(function(connects){ %>
                   <a href="#" class="list-group-item">
                       <div class="connects">
-                          <p class="list-group-item-text iotitem"><%= connects.iotaction %> => <%= connects.iotevent %> <%=connects.input_number %><%=connects.output_number %></p>
+                        <div class="row">
+                          <div class="col-md-5">
+                            <h3 class="btn btn-primary btn-lg">Input</h3>
+                            <p class="list-group-item-text iotitem"><%= connects.iotaction %> <%= connects.iotaction2 %> <%= connects.iotaction3 %> <%= connects.iotaction4 %> </p>
+                          </div>
+                          <div class="col-md-5">
+                            <h3 class="btn btn-primary btn-lg">Output</h3>
+                            <p class="list-group-item-text iotitem"><%= connects.iotevent %> <%= connects.iotevent2 %> <%= connects.iotevent3 %> <%= connects.iotevent4 %> </p>
+                          </div>
+                          <div class="col-md-2">
+                            <h3 class="btn btn-primary btn-lg">email전송여부</h3>
+                            <p class="list-group-item-text iotitem" style="text-align: center">
+                              <% if (connects.email === '1') { %>
+                                O
+                              <% }else {%>
+                                X
+                              <% }%>
+                            </p>
+                          </div>
+                        </div>
                       </div>
                   </a>
           <% }); %>

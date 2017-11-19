@@ -46,130 +46,116 @@ router.post('/', function(req, res) {
 	});
 });
 */
-function input_check(input){
-  if (input === '침대누움'){
-    return '[1011]';
+function input_check(input,input2,input3,input4){
+  if (input === '센서1 OFF' && input2 === '센서2 OFF' && input3 === '센서3 OFF' && input4 === '센서4 OFF'){
+    return '[111@]';
   }
-  else if (input === '침대일어남') {
-    return '[1010]';
+  else if (input === '센서1 OFF' && input2 === '센서2 OFF' && input3 === '센서3 OFF' && input4 === '센서4 ON') {
+    return '[111A]';
   }
-  else if (input === '소파앉음') {
-    return '[1021]';
+  else if (input === '센서1 OFF' && input2 === '센서2 OFF' && input3 === '센서3 ON' && input4 === '센서4 OFF') {
+    return '[111B]';
   }
-  else if (input === '소파일어남') {
-    return '[1020]';
+  else if (input === '센서1 OFF' && input2 === '센서2 OFF' && input3 === '센서3 ON' && input4 === '센서4 ON') {
+    return '[111C]';
   }
-  else if (input === '창문열음') {
-    return '[1031]';
+  else if (input === '센서1 OFF' && input2 === '센서2 ON' && input3 === '센서3 OFF' && input4 === '센서4 OFF') {
+    return '[111D]';
   }
-  else if (input === '창문닫음') {
-    return '[1030]';
+  else if (input === '센서1 OFF' && input2 === '센서2 ON' && input3 === '센서3 OFF' && input4 === '센서4 ON') {
+    return '[111E]';
   }
-  else if (input === '적외선감지') {
-    return '[1041]';
+  else if (input === '센서1 OFF' && input2 === '센서2 ON' && input3 === '센서3 ON' && input4 === '센서4 OFF') {
+    return '[111F]';
   }
-  else if (input === '적외선미감지') {
-    return '[1040]';
+  else if (input === '센서1 OFF' && input2 === '센서2 ON' && input3 === '센서3 ON' && input4 === '센서4 ON') {
+    return '[111G';
   }
-}
-
-function output_check(output){
-  if (output === '거실등 ON'){
-    return '2011';
+  else if (input === '센서1 ON' && input2 === '센서2 OFF' && input3 === '센서3 OFF' && input4 === '센서4 OFF') {
+    return '[111H]';
   }
-  else if (output === '거실등 OFF') {
-    return '2010';
+  else if (input === '센서1 ON' && input2 === '센서2 OFF' && input3 === '센서3 OFF' && input4 === '센서4 ON') {
+    return '[111I]';
   }
-  else if (output === '스탠드램프 ON') {
-    return '2021';
+  else if (input === '센서1 ON' && input2 === '센서2 OFF' && input3 === '센서3 ON' && input4 === '센서4 OFF') {
+    return '[111G]';
   }
-  else if (output === '스탠드램프 OFF') {
-    return '2020';
+  else if (input === '센서1 ON' && input2 === '센서2 OFF' && input3 === '센서3 ON' && input4 === '센서4 ON') {
+    return '[111K]';
   }
-  else if (output === '경보기 ON') {
-    return '2031';
+  else if (input === '센서1 ON' && input2 === '센서2 ON' && input3 === '센서3 OFF' && input4 === '센서4 OFF') {
+    return '[111L]';
   }
-  else if (output === '경보기 OFF') {
-    return '2030';
+  else if (input === '센서1 ON' && input2 === '센서2 ON' && input3 === '센서3 OFF' && input4 === '센서4 ON') {
+    return '[111M]';
   }
-  else if (output === '환풍기 ON') {
-    return '2041';
+  else if (input === '센서1 ON' && input2 === '센서2 ON' && input3 === '센서3 ON' && input4 === '센서4 OFF') {
+    return '[111N]';
   }
-  else if (output === '환풍기 OFF') {
-    return '2040';
-  }
-  else if (output === 'E-mail 전송') {
-    return '0';
+  else if (input === '센서1 ON' && input2 === '센서2 ON' && input3 === '센서3 ON' && input4 === '센서4 ON') {
+    return '[111O]';
   }
 }
 
-router.post('/data_status', function(req, res) {
-   //post방식으로 받아온 json타입에서 바디의 iotaction key의 data값을 string으로 받아옴
-   // iotaction: xx
-   var iot_action=req.body.iotaction
-   console.log(typeof(iot_action));
-  //json 배열 형태로 뽑아내 전달
+function output_check(output,output2,output3,output4){
+  if (output === '거실등 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 OFF'){
+    return '222@';
+  }
+  else if (output === '거실등 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
+    return '222A';
+  }
+  else if (output === '거실등 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
+    return '222B';
+  }
+  else if (output === '거실등 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
+    return '222C';
+  }
+  else if (output === '거실등 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
+    return '222D';
+  }
+  else if (output === '거실등 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
+    return '222E';
+  }
+  else if (output === '거실등 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
+    return '222F';
+  }
+  else if (output === '거실등 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
+    return '222G';
+  }
+  else if (output === '거실등 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
+    return '222H';
+  }
+  else if (output === '거실등 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
+    return '222I';
+  }
+  else if (output === '거실등 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
+    return '222G';
+  }
+  else if (output === '거실등 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
+    return '222K';
+  }
+  else if (output === '거실등 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
+    return '222L';
+  }
+  else if (output === '거실등 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
+    return '222M';
+  }
+  else if (output === '거실등 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
+    return '222N';
+  }
+  else if (output === '거실등 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
+    return '222O';
+  }
+}
 
-  Users.find().select('local').exec(function(error, connects){
-    var uEmail= connects[0].local.email;
-    console.log(uEmail);
-  });
-
-
-  Connects.find({iotaction: iot_action},{_id: 0, iotevent: 1}) // id컬럼값을제거하고 iotevent만 남김
-  .select('iotevent').sort('-created')
-  .exec(function(error, connects) {
-    console.log(connects);
-    var iot_events = (connects);
-    var emailCheck = iot_events.find((item, idx) => {
-      return item.iotevent === 'E-mail 전송'
-    });
-
-   console.log(emailCheck);
-    //응답이 email 제외한경우 json배열으로 이벤트전달
-
-      console.log(iot_events);
-      res.send(iot_events);
-    if(emailCheck != undefined){
-      var transporter = nodemailer.createTransport({
-      service: "naver",
-      auth: {
-              user: "zx6658@naver.com",
-              pass: "as960920!!"
-        }
-      });
-
-      var mailOptions = {
-        from: "zx6658@naver.com",
-        to: "zx6658@hanmail.net",
-        subject: "iot_test ",
-        text: "Hello "
-        };
-
-      transporter.sendMail(mailOptions, function(error, response)
-      {
-        if(error){ console.log(error);
-        }
-        else{
-          console.log("Message sent: " + response.message);
-        }
-        transporter.close();
-        res.send(iot_events);
-      });
-      }
-  });
-
-});
 
 /* Create connects */
 router.post('/home', function(req, res) {
   console.log(req.body);
     // create a new instance of the Connects model with request body
     var connects = new Connects(req.body);
-    console.log(connects.iotaction);
-    connects.input_number = input_check(connects.iotaction);
-    console.log(connects.input_number)
-    connects.output_number = output_check(connects.iotevent);
+    connects.input_number = input_check(connects.iotaction,connects.iotaction2,connects.iotaction3,connects.iotaction4);
+    connects.output_number = output_check(connects.iotevent,connects.iotevent2,connects.iotevent3,connects.iotevent4);
     // Set current user (id)
     connects.user = req.user;
     // save the data received

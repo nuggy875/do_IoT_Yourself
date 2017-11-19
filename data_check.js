@@ -8,13 +8,13 @@ var nodemailer = require('nodemailer');
      var input_n = input;
     //json 배열 형태로 뽑아내 전달
 
-    Connects.find({input_number: input_n},{_id: 0, output_number: 1,iotevent: 1}) // id컬럼값을제거하고 iotevent만 남김
+    Connects.find({input_number: input_n},{_id: 0, output_number: 1,email: 1,emailaddr: 1,emailtext: 1}) // id컬럼값을제거하고 iotevent만 남김
     .sort('-created')
     .exec(function (error, connects) {
       console.log('data: ' + connects);
       let outputs = (connects);
       let emailCheck = outputs.find((item, idx) => {
-        return item.iotevent === 'E-mail 전송'
+        return item.email === '1'
       });
       if(outputs[0] != undefined){
       result = outputs[0].output_number;
@@ -23,7 +23,7 @@ var nodemailer = require('nodemailer');
         result=' ';
       }
 
-      if(emailCheck != undefined){
+      if(emailCheck){
         var transporter = nodemailer.createTransport({
         service: "naver",
         auth: {
@@ -31,12 +31,11 @@ var nodemailer = require('nodemailer');
                 pass: "as960920!!"
           }
         });
-
         var mailOptions = {
           from: "zx6658@naver.com",
-          to: "zx6658@hanmail.net",
-          subject: "iot_test ",
-          text: "Hello "
+          to: outputs[0].emailaddr,
+          subject: "Do IoT Yourself" + outputs[0].emailtext,
+          text: outputs[0].emailtext
           };
 
         transporter.sendMail(mailOptions, function(error, response)

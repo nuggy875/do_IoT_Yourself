@@ -20,6 +20,45 @@ var connectSchema = mongoose.Schema({
     trim: true,
     required: ''
   },
+  iotaction2: {
+    type: String,
+    default: '',
+    // 공백 trim
+    trim: true,
+    required: ''
+  },
+  iotevent2: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  iotaction3: {
+    type: String,
+    default: '',
+    // 공백 trim
+    trim: true,
+    required: ''
+  },
+  iotevent3: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  iotaction4: {
+    type: String,
+    default: '',
+    // 공백 trim
+    trim: true,
+    required: ''
+  },
+  iotevent4: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
   input_number: {
     type: String,
     default: '',
@@ -27,6 +66,24 @@ var connectSchema = mongoose.Schema({
     required: ''
   },
   output_number: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  email: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  emailtext: {
+    type: String,
+    default: '',
+    trim: true,
+    required: ''
+  },
+  emailaddr: {
     type: String,
     default: '',
     trim: true,
