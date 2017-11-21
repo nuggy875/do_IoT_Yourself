@@ -5,12 +5,22 @@ var gravatar = require('gravatar');
 var Connects = require('../models/connects');
 var Users = require('../models/users');
 var nodemailer = require('nodemailer');
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/mydb";
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('intro', { title: 'DO IOT YOURSELF' });
 });
 
+router.get('/delete/:id', function(req, res){
+    console.log(req.params.id);
+    Connects.remove({ _id : req.params.id }, function(err){
+        res.redirect('/home');
+    });
+});
 
 router.get('/home', hasAuthorization, function(req, res) {
 
