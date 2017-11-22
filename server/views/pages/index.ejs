@@ -43,7 +43,11 @@
                 <textarea id="inputContent" name="content" rows="8" cols="40" class="form-control" placeholder="Comment Description" required=""></textarea>
               </fieldset>
               -->
-
+              <div id="title_e" class="selectGroup form-control">
+                <label for="t-select"><strong>이벤트이름</strong></label>
+                <input type="text" class="form-control" id="title_e" name="title_e" value="입력하세요">
+              </div>
+              <br>
               <div id="inputaction" class="selectGroup form-control">
                 <label for="a-select">INPUT1: </label>
                 <select name="iotaction" id="a-select">
@@ -191,8 +195,16 @@
       <div class="lead">
           <div class="list-group">
           <% connects.forEach(function(connects){ %>
-                  <a href="#" class="list-group-item">
-                      <div class="connects">
+
+                      <div style="margin-bottom: 5px">
+                        <div class="row">
+                          <div class="col-md-12"  style="text-align:center; background-color: #555555; color:white; margin-bottom: 5px">
+                            <p><h3><%= connects.title_e %></h3></p>
+                          </div>
+                       </div>
+                       <div style="text-align:right; margin-bottom:2px">
+                         <a href="/delete/<%=connects._id%>" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
+                       </div>
                         <div class="row">
                           <div class="col-md-5">
                             <h3 class="btn btn-primary btn-lg">Input</h3>
@@ -213,9 +225,7 @@
                             </p>
                           </div>
                         </div>
-                        <a href="/delete/<%=connects._id%>" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
                       </div>
-                  </a>
           <% }); %>
           </div>
       </div>
