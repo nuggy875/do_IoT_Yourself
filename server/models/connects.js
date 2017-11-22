@@ -6,7 +6,13 @@ var connectSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
-
+  title_e: {
+    type: String,
+    default: '',
+    // 공백 trim
+    trim: true,
+    required: ''
+  },
   iotaction: {
     type: String,
     default: '',
