@@ -57,103 +57,103 @@ router.post('/', function(req, res) {
 });
 */
 function input_check(input,input2,input3,input4){
-  if (input === '센서1 OFF' && input2 === '센서2 OFF' && input3 === '센서3 OFF' && input4 === '센서4 OFF'){
+  if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 일어남'){
     return '[111@]';
   }
-  else if (input === '센서1 OFF' && input2 === '센서2 OFF' && input3 === '센서3 OFF' && input4 === '센서4 ON') {
+  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 앉음') {
     return '[111A]';
   }
-  else if (input === '센서1 OFF' && input2 === '센서2 OFF' && input3 === '센서3 ON' && input4 === '센서4 OFF') {
+  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 일어남') {
     return '[111B]';
   }
-  else if (input === '센서1 OFF' && input2 === '센서2 OFF' && input3 === '센서3 ON' && input4 === '센서4 ON') {
+  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 앉음') {
     return '[111C]';
   }
-  else if (input === '센서1 OFF' && input2 === '센서2 ON' && input3 === '센서3 OFF' && input4 === '센서4 OFF') {
+  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 일어남') {
     return '[111D]';
   }
-  else if (input === '센서1 OFF' && input2 === '센서2 ON' && input3 === '센서3 OFF' && input4 === '센서4 ON') {
+  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 앉음') {
     return '[111E]';
   }
-  else if (input === '센서1 OFF' && input2 === '센서2 ON' && input3 === '센서3 ON' && input4 === '센서4 OFF') {
+  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 일어남') {
     return '[111F]';
   }
-  else if (input === '센서1 OFF' && input2 === '센서2 ON' && input3 === '센서3 ON' && input4 === '센서4 ON') {
+  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 앉음') {
     return '[111G';
   }
-  else if (input === '센서1 ON' && input2 === '센서2 OFF' && input3 === '센서3 OFF' && input4 === '센서4 OFF') {
+  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 일어남') {
     return '[111H]';
   }
-  else if (input === '센서1 ON' && input2 === '센서2 OFF' && input3 === '센서3 OFF' && input4 === '센서4 ON') {
+  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 앉음') {
     return '[111I]';
   }
-  else if (input === '센서1 ON' && input2 === '센서2 OFF' && input3 === '센서3 ON' && input4 === '센서4 OFF') {
+  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 일어남') {
     return '[111G]';
   }
-  else if (input === '센서1 ON' && input2 === '센서2 OFF' && input3 === '센서3 ON' && input4 === '센서4 ON') {
+  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 앉음') {
     return '[111K]';
   }
-  else if (input === '센서1 ON' && input2 === '센서2 ON' && input3 === '센서3 OFF' && input4 === '센서4 OFF') {
+  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 일어남') {
     return '[111L]';
   }
-  else if (input === '센서1 ON' && input2 === '센서2 ON' && input3 === '센서3 OFF' && input4 === '센서4 ON') {
+  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 앉음') {
     return '[111M]';
   }
-  else if (input === '센서1 ON' && input2 === '센서2 ON' && input3 === '센서3 ON' && input4 === '센서4 OFF') {
+  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 일어남') {
     return '[111N]';
   }
-  else if (input === '센서1 ON' && input2 === '센서2 ON' && input3 === '센서3 ON' && input4 === '센서4 ON') {
+  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 앉음') {
     return '[111O]';
   }
 }
 
 function output_check(output,output2,output3,output4){
-  if (output === '거실등 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 OFF'){
+  if (output === '현관문조명 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 OFF'){
     return '222@';
   }
-  else if (output === '거실등 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
+  else if (output === '현관문조명 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
     return '222A';
   }
-  else if (output === '거실등 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
+  else if (output === '현관문조명 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
     return '222B';
   }
-  else if (output === '거실등 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
+  else if (output === '현관문조명 OFF' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
     return '222C';
   }
-  else if (output === '거실등 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
+  else if (output === '현관문조명 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
     return '222D';
   }
-  else if (output === '거실등 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
+  else if (output === '현관문조명 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
     return '222E';
   }
-  else if (output === '거실등 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
+  else if (output === '현관문조명 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
     return '222F';
   }
-  else if (output === '거실등 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
+  else if (output === '현관문조명 OFF' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
     return '222G';
   }
-  else if (output === '거실등 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
+  else if (output === '현관문조명 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
     return '222H';
   }
-  else if (output === '거실등 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
+  else if (output === '현관문조명 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
     return '222I';
   }
-  else if (output === '거실등 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
+  else if (output === '현관문조명 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
     return '222G';
   }
-  else if (output === '거실등 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
+  else if (output === '현관문조명 ON' && output2 === '스탠드램프 OFF' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
     return '222K';
   }
-  else if (output === '거실등 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
+  else if (output === '현관문조명 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 OFF') {
     return '222L';
   }
-  else if (output === '거실등 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
+  else if (output === '현관문조명 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 OFF' && output4 === '환풍기 ON') {
     return '222M';
   }
-  else if (output === '거실등 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
+  else if (output === '현관문조명 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 OFF') {
     return '222N';
   }
-  else if (output === '거실등 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
+  else if (output === '현관문조명 ON' && output2 === '스탠드램프 ON' && output3 === '경보기 ON' && output4 === '환풍기 ON') {
     return '222O';
   }
 }
