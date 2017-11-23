@@ -57,52 +57,52 @@ router.post('/', function(req, res) {
 });
 */
 function input_check(input,input2,input3,input4){
-  if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 일어남'){
+  if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 일어남'){
     return '[111@]';
   }
-  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 앉음') {
+  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 앉음') {
     return '[111A]';
   }
-  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 일어남') {
+  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 일어남') {
     return '[111B]';
   }
-  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 앉음') {
+  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 앉음') {
     return '[111C]';
   }
-  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 일어남') {
+  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 일어남') {
     return '[111D]';
   }
-  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 앉음') {
+  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 앉음') {
     return '[111E]';
   }
-  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 일어남') {
+  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 일어남') {
     return '[111F]';
   }
-  else if (input === '침대 일어남' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 앉음') {
+  else if (input === '침대 일어남' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 앉음') {
     return '[111G';
   }
-  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 일어남') {
+  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 일어남') {
     return '[111H]';
   }
-  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 앉음') {
+  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 앉음') {
     return '[111I]';
   }
-  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 일어남') {
+  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 일어남') {
     return '[111G]';
   }
-  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 앉음') {
+  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 앉음') {
     return '[111K]';
   }
-  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 일어남') {
+  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 일어남') {
     return '[111L]';
   }
-  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 낮' && input4 === '소파 앉음') {
+  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 낮' && input4 === '소파 앉음') {
     return '[111M]';
   }
-  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 일어남') {
+  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 일어남') {
     return '[111N]';
   }
-  else if (input === '침대 누움' && input2 === '현관문 열림' && input3 === '광센서 밤' && input4 === '소파 앉음') {
+  else if (input === '침대 누움' && input2 === '현관문 닫힘' && input3 === '광센서 밤' && input4 === '소파 앉음') {
     return '[111O]';
   }
 }
